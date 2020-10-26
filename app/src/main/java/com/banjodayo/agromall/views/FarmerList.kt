@@ -1,6 +1,7 @@
 package com.banjodayo.agromall.views
 
 import android.content.Context
+import android.content.Intent
 import android.location.Address
 import android.location.Geocoder
 import android.os.Bundle
@@ -18,6 +19,7 @@ import com.banjodayo.agromall.adapter.FarmerPaginatedAdapter
 import com.banjodayo.agromall.data.Farmer
 import com.banjodayo.agromall.data.GeoCoordinate
 import com.banjodayo.agromall.databinding.FragmentFarmerListBinding
+import com.banjodayo.agromall.utils.EXTRA_LOG_OUT
 import com.banjodayo.agromall.utils.Status
 import com.banjodayo.agromall.viewmodel.FarmerViewModel
 import kotlinx.android.synthetic.main.activity_farmer.*
@@ -51,25 +53,6 @@ class FarmerList : Fragment() {
         val sharedPrefs = requireActivity().getSharedPreferences(
             getString(R.string.shared_pref_file_key), Context.MODE_PRIVATE)
 
-       /* viewModel.getFarmers.observe(requireActivity()){
-            when(it.status){
-                Status.LOADING -> {
-                    requireActivity().layout_content.progress_bar.visibility = View.VISIBLE
-                }
-                Status.SUCCESS -> {
-                    requireActivity().layout_content.progress_bar.visibility = View.GONE
-                    if (it.data!!.equals(null)){
-                        Toast.makeText(requireContext(), getString(R.string.err_message), Toast.LENGTH_SHORT).show()
-                    }
-                }
-                Status.ERROR -> {
-                    requireActivity().layout_content.progress_bar.visibility = View.GONE
-                    Toast.makeText(requireContext(), getString(R.string.err_message), Toast.LENGTH_SHORT).show()
-                }
-            }
-        }*/
-
-
         viewModel.farmerLiveData.observe(viewLifecycleOwner){
             farmerAdapter.submitList(it)
         }
@@ -88,7 +71,9 @@ class FarmerList : Fragment() {
         binding.logoutButton.setOnClickListener {
             with(sharedPrefs.edit()) {
                 putBoolean("isLogin", false).apply()
-                requireActivity().finish()
+                val intent = Intent(requireContext(), LoadingActivity::class.java)
+                intent.putExtra(EXTRA_LOG_OUT, 1)
+                startActivity(intent)
             }
         }
 
@@ -98,7 +83,6 @@ class FarmerList : Fragment() {
             }
         }
     }
-
 
     private suspend fun getLoc(farmer: Farmer) : Array<Double>{
         var geoArray : Array<Double> = emptyArray()

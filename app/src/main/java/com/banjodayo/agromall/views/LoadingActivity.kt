@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.banjodayo.agromall.R
 import com.banjodayo.agromall.databinding.ActivityLoadingBinding
+import com.banjodayo.agromall.utils.EXTRA_LOG_OUT
 import com.banjodayo.agromall.viewmodel.LoginViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -29,6 +30,11 @@ class LoadingActivity : AppCompatActivity() {
             getString(R.string.shared_pref_file_key), Context.MODE_PRIVATE)
 
         startTimer(5000L)
+
+         val logout = intent.getIntExtra(EXTRA_LOG_OUT, 0)
+        if(logout == LOGOUT){
+            toggleVisibility()
+        }
 
         binding.loginLayout.loginButton.setOnClickListener {
             if (verifyLogin()) {
@@ -96,5 +102,6 @@ class LoadingActivity : AppCompatActivity() {
 
     companion object{
         private  var message  : String= ""
+        private const val LOGOUT = 1
     }
 }

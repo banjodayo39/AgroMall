@@ -85,7 +85,7 @@ class FragmentDetail : Fragment() {
         }
     }
 
-     fun showToast(name: String){
+     private fun showToast(name: String){
          Toast.makeText(context, "$name is missing", Toast.LENGTH_SHORT).show()
      }
 }
