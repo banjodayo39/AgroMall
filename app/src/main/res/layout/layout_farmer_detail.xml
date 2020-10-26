@@ -36,7 +36,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Farmer Name"
+                    android:text="@string/farmer_name"
                     android:layout_marginTop="@dimen/margin_default"/>
 
                 <FrameLayout
@@ -46,17 +46,21 @@
                     android:padding="@dimen/margin_small"
                     android:background="@drawable/transparent_green_background">
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/farmer_name_editTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Farmer Name"
-                        android:layout_gravity="center_vertical" />
+                        android:hint="@string/farmer_name"
+                        android:background="@null"
+                        android:layout_gravity="center_vertical"
+                        android:inputType="text"
+                        android:autofillHints="@string/farmer_name" />
                 </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Farmer Location"
+                    android:text="@string/farmer_name"
                     android:layout_marginTop="@dimen/margin_default"/>
 
                 <FrameLayout
@@ -66,17 +70,21 @@
                     android:padding="@dimen/margin_small"
                     android:background="@drawable/transparent_green_background">
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/farmer_surname_editTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Farmer name"
-                        android:layout_gravity="center_vertical" />
+                        android:hint="@string/surname"
+                        android:background="@null"
+                        android:layout_gravity="center_vertical"
+                        android:inputType="text"
+                        android:autofillHints="@string/surname" />
                 </FrameLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Farmer State"
+                    android:text="@string/farmer_location"
                     android:layout_marginTop="@dimen/margin_default"/>
 
                 <FrameLayout
@@ -86,17 +94,46 @@
                     android:padding="@dimen/margin_small"
                     android:background="@drawable/transparent_green_background">
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/farmer_location_editTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="Farmer State"
-                        android:layout_gravity="center_vertical" />
+                        android:background="@null"
+                        android:hint="@string/farmer_location"
+                        android:layout_gravity="center_vertical"
+                        android:inputType="text"
+                        android:autofillHints="@string/farmer_location" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/farmer_state"
+                    android:layout_marginTop="@dimen/margin_default"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:padding="@dimen/margin_small"
+                    android:background="@drawable/transparent_green_background">
+
+                    <EditText
+                        android:id="@+id/farmer_state_editTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/farmer_state"
+                        android:inputType="text"
+                        android:layout_gravity="center_vertical"
+                        android:autofillHints="@string/farmer_state" />
                 </FrameLayout>
 
                 <Button
+                    android:id="@+id/save_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Save"
+                    android:text="@string/save"
                     android:layout_marginTop="@dimen/margin_default"
                     style="@style/PrimaryButton"/>
 

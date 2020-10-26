@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -32,13 +33,17 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            buildConfigField "String", "API_URL", RETROFIT_URL
+            buildConfigField "String", "API_URL", API_URL
+            buildConfigField 'String', "ApiKeyMap", ApiKeyMap
+            resValue 'string', "api_key_map", ApiKeyMap
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
             debuggable true
-            buildConfigField "String", "API_URL", RETROFIT_URL
+            buildConfigField "String", "API_URL", API_URL
+            buildConfigField 'String', "ApiKeyMap", ApiKeyMap
+            resValue 'string', "api_key_map", ApiKeyMap
         }
     }
 }
@@ -52,22 +57,41 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
+    implementation 'com.google.android.gms:play-services-location:17.1.0'
+    implementation "com.google.android.gms:play-services-maps:$gms_version"
+    implementation "com.google.android.gms:play-services-location:$gms_version"
     testImplementation 'junit:junit:4.12'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation "com.airbnb.android:lottie:$lottieVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
     //koin dependency
-    implementation "org.koin:koin-android-viewmodel:$koin"
-    implementation "org.koin:koin-android:$koin"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
     //networking
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_logger_version"
     implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "androidx.paging:paging-runtime:$paging_version"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //image library
+    implementation "de.hdodenhof:circleimageview:$circleimageview_version"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+
+    implementation "androidx.paging:paging-runtime-ktx:$paging_version"
+
+    //google map
+    implementation "com.google.android.gms:play-services-location:$gms_version"
+    implementation "com.google.android.gms:play-services-maps:$gms_version"
+
 }

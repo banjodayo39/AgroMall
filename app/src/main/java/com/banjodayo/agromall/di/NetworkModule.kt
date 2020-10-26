@@ -31,7 +31,6 @@ fun provideGson(): Gson {
 }
 
 fun provideHttpInterceptorLogger(): HttpLoggingInterceptor.Logger {
-
    return HttpLoggingInterceptor.Logger { message -> Log.d(HTTP_LOG_TAG, message) }
 }
 

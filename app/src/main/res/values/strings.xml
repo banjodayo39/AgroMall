@@ -4,13 +4,29 @@
     <string name="email_">Email*</string>
     <string name="password_">Password*</string>
     <string name="title_activity_farmer">FarmerActivity</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="shared_pref_file_key">Agromall_Pref</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="farmer_list">Farmer List</string>
+    <string name="click_to_see_more">Click to see more</string>
+    <string name="username">%s %s</string>
+    <string name="log_out">Log out</string>
+    <string name="agromall">Agromall</string>
+    <string name="image">image</string>
+    <string name="base_url">https://s3-eu-west-1.amazonaws.com/agromall-storage/%s</string>
+    <string name="err_message">Oops!! having difficulties processing your request</string>
+    <string name="email_value">test@tellerium.io</string>
+    <string name="password_value">password</string>
+    <string name="err_email">Incorrect email</string>
+    <string name="err_password">Incorrect password</string>
+    <string name="save">Save</string>
+    <string name="farmer_state">Farmer State</string>
+    <string name="farmer_name">Farmer name</string>
+    <string name="farmer_location">Farmer Location</string>
+    <string name="surname">Surname</string>
+    <string name="logo_image">logo_image</string>
 </resources>

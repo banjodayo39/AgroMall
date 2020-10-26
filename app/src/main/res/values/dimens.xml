@@ -6,4 +6,6 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="text_size_default">18sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_medium">12dp</dimen>
+    <dimen name="margin_mid_large">20dp</dimen>
 </resources>
